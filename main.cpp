@@ -148,8 +148,8 @@ int bestOver() {
     //Finds the pizza that allows the current number of slices to overflow the limit by the smallest amount
     //In no pizza can overflow the limit, it will return the biggest available pizza
     const int delta = maxSlices - currSlices;
+    //Initialize at error code
     int currentlyBest = -1;
-    //Cycle the map backwards, so we check the bigger pizzas first
     for (auto it = available.begin(); it != available.end(); it++) {
         //Check if it is available to take
         if(it->second > 0){
