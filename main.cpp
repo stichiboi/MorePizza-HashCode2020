@@ -125,6 +125,7 @@ paii bestSwitch() {
     //Finds 2 pizzas, one taken and one available, that when switched, allow the currSlices count to go below maxSlices
     //The optimal switch will be the one with delta equal to the amount overflowed
     const int originalDelta = currSlices - maxSlices;
+    //Initialize at ERROR_CODE so that if no solution was found, the driver will quit
     paii bestDelta = PAII_ERROR_CODE;
     for (auto it = taken.begin(); it != taken.end(); it++) {
         if (it->second > 0) {
@@ -141,7 +142,6 @@ paii bestSwitch() {
             }
         }
     }
-    //No possible switch was found
     return bestDelta;
 }
 int bestOver() {
